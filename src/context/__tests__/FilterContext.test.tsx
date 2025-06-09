@@ -2,7 +2,7 @@ import React from 'react';
 import { render, act } from '@testing-library/react';
 import { FilterProvider, useFilterContext, DataRow } from '../FilterContext';
 
-// Test component that uses the context
+
 const TestComponent: React.FC = () => {
   const { data, setData, filters, setFilterValue, filteredData, resetFilters } = useFilterContext();
   return (
@@ -37,12 +37,12 @@ describe('FilterContext', () => {
       </FilterProvider>
     );
 
-    // Set initial data
+
     act(() => {
       getByText('Set Data').click();
     });
 
-    // Set filter
+
     act(() => {
       getByText('Set Filter').click();
     });
@@ -50,7 +50,7 @@ describe('FilterContext', () => {
     expect(getByTestId('filtered-data').textContent).toBe('[{"id":"1","name":"Test 1"}]');
     expect(getByTestId('filters').textContent).toBe('{"name":["Test 1"]}');
 
-    // Reset filters
+
     act(() => {
       getByText('Reset').click();
     });

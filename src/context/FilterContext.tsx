@@ -19,7 +19,6 @@ export const FilterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const [data, setData] = useState<DataRow[]>([]);
   const [filters, setFilters] = useState<FilterState>({});
 
-  // Compute filtered data based on filters
   const filteredData = useMemo(() => {
     return data.filter(row =>
       Object.entries(filters).every(([col, vals]) =>
